@@ -671,6 +671,16 @@ function start(){
   document.getElementById('instalar-boton').onclick = instalar;
 }
 
+// ---------- pie ----------
+// El año de los derechos es el actual. El correo se monta aquí, a trozos, para que no aparezca entero en los archivos.
+document.getElementById('anio-derechos').textContent = new Date().getFullYear();
+{
+  const correo = 'ecasanovabisc' + '@' + ['gmail', 'com'].join('.');
+  const enlace = document.createElement('a');
+  enlace.href = 'mailto:' + correo; enlace.textContent = correo;
+  document.getElementById('contacto').append(' · ', enlace);
+}
+
 // ---------- portada ----------
 // Se queda lo justo para ver caer la arena (o menos si se toca) y se va cuando el juego está listo.
 const portada = document.getElementById('portada');
