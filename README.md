@@ -60,7 +60,7 @@ python3 -m http.server 8000
 
 y abrir <http://localhost:8000>.
 
-Para empezar de cero, abre <http://localhost:8000/reiniciar> y confirma con «Sí, borrar todo» (o «Cancelar» para volver sin tocar nada). Borra el progreso, los tiempos, las soluciones vistas, la racha y los ajustes (por ejemplo, que ya se vieron las reglas) de este navegador, además de la copia sin conexión del service worker, y vuelve al juego. Así también se cargan los archivos recién cambiados. En GitHub Pages funciona igual (`…/Silabocho/reiniciar`) y solo afecta al dispositivo de quien la abre.
+Para empezar de cero, abre <http://localhost:8000/reiniciar> y confirma con «Sí, borrar todo» (o «Cancelar» para volver sin tocar nada). Borra el progreso, los tiempos, las soluciones vistas, la racha y los ajustes (por ejemplo, que ya se vieron las reglas) de este navegador, además de la copia sin conexión del service worker, y vuelve al juego. Así también se cargan los archivos recién cambiados. En GitHub Pages funciona igual (`silabocho.github.io/reiniciar`) y solo afecta al dispositivo de quien la abre.
 
 ## Regenerar los tableros
 
@@ -117,11 +117,11 @@ Cómo trabaja:
 
 ## Publicación en GitHub Pages
 
-El juego es estático y usa rutas relativas, así que funciona tal cual en `https://emiliocasanovabiscarri.github.io/Silabocho/`:
+El juego es estático y usa rutas relativas, así que funciona tal cual en `https://silabocho.github.io/`:
 
 1. En GitHub: *Settings → Pages → Build and deployment → Source: Deploy from a branch*.
 2. Rama `main`, carpeta `/ (root)`, *Save*.
-3. A los pocos minutos estará en <https://emiliocasanovabiscarri.github.io/Silabocho/>.
+3. A los pocos minutos estará en <https://silabocho.github.io/>.
 
 Para instalarlo en el móvil: abrir la dirección y, en Android (Chrome), *Instalar aplicación*; en iPhone (Safari), *Compartir → Añadir a pantalla de inicio*. La instalación y el modo sin conexión necesitan HTTPS, que GitHub Pages ya da.
 

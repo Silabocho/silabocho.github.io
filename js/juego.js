@@ -7,7 +7,7 @@ const RANKS = [["Monosílabo",0],["Bisílabo",0],["Trisílabo",.05],["Tetrasíla
 const START = Date.UTC(2026, 9, 1);
 const INICIO = '2026-10-01';   // se guarda con el progreso para saber con qué numeración se jugó
 const ORDEN = 2;                // versión del orden de tableros (2: catarata pasó del día 4 al 7)
-const URL_JUEGO = 'https://emiliocasanovabiscarri.github.io/Silabocho/';
+const URL_JUEGO = 'https://silabocho.github.io/';
 const URL_COMPARTIR = URL_JUEGO.replace(/^https?:\/\//, '').replace(/\/$/, '');   // en el texto de compartir, sin https:// ni barra final
 const STORE = 'silabocho-v1';
 const pointsFor = n => n<=2?1:n===3?2:n===4?4:6;
