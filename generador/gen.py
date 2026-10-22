@@ -31,6 +31,8 @@ ap.add_argument('--salida', default=SALIDA)
 ap.add_argument('--reusar', action='store_true', help='reutiliza los candidatos guardados en candidatos.json')
 ap.add_argument('--max-jaccard', type=float, default=0.45, metavar='X',
                 help='parecido máximo entre dos tableros (sílabas compartidas / sílabas en total); por defecto 0,45')
+ap.add_argument('--min-palabras', type=int, default=15, metavar='N',
+                help='palabras mínimas del núcleo para aceptar un tablero; por defecto 15')
 ap.add_argument('--max-central', type=int, default=None, metavar='N',
                 help='una misma sílaba central no sale más de N veces entre todos los tableros (contando los que se conservan con --ampliar)')
 ap.add_argument('--ampliar', type=int, nargs=2, metavar=('ANTES', 'DESPUES'), help='añade tableros nuevos delante y detrás de los que ya hay')
@@ -44,7 +46,7 @@ CANDIDATOS = args.candidatos or 3 * args.tableros
 random.seed(args.semilla)
 print(f'léxico: {len(LEX)} palabras en el núcleo, {len(EXTRA)} extra', file=sys.stderr)
 
-MIN_PALABRAS, MAX_PALABRAS = 15, 80
+MIN_PALABRAS, MAX_PALABRAS = args.min_palabras, 80
 MAX_JACCARD = args.max_jaccard
 
 # ---------- búsqueda ----------

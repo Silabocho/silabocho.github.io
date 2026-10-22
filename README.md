@@ -82,6 +82,7 @@ Opciones de `gen.py`:
 | `--semilla N` | 2026 | semilla fija: la misma semilla da los mismos tableros |
 | `--ampliar ANTES DESPUÉS` | — | conserva los tableros de `data/tableros.json` en su sitio y añade tableros nuevos compatibles: ANTES delante y DESPUÉS detrás. Si ANTES no es 0, la numeración de los días se corre: hay que retrasar `START` en `js/juego.js` y migrar el progreso guardado (ver `load()`) |
 | `--max-central N` | — | una misma sílaba central no sale más de N veces entre todos los tableros (contando los que se conservan con `--ampliar`); la búsqueda ya no propone centrales que hayan llegado al límite |
+| `--min-palabras N` | 15 | palabras del núcleo que necesita un tablero para aceptarse (antes de añadirle las del resto del diccionario); bajarlo acelera mucho la búsqueda cuando ya hay muchos tableros, a cambio de tableros más cortos |
 | `--max-jaccard X` | 0,45 | parecido máximo entre dos tableros (sílabas compartidas / sílabas en total); subirlo un poco ayuda cuando ya hay muchos tableros y cuesta encontrar más |
 | `--reusar` | — | reutiliza los candidatos de `candidatos.json` y solo rehace la selección (segundos en vez de minutos); se niega si el léxico ha cambiado |
 
@@ -94,6 +95,8 @@ Cómo trabaja:
 5. Ordena los candidatos por calidad, es decir, por lo interesantes que son: variedad de familias de palabras (preparada y preparados cuentan como una), familias largas, variedad de longitudes y alguna palabra de 5 sílabas o más; penaliza los tableros llenos de participios o con más de 3 Silabochos. Se queda con los mejores.
 6. Al generar desde cero, los días 1, 2 y 3, los que tienen que enganchar, son los tableros indicados en `primeros.txt` (por una de sus palabras estrella; ahora catarata, calabozo y operadora). Si falta alguno, se elige automáticamente el mejor sin repetir sílaba central. El resto se baraja con la semilla.
 7. Guarda los candidatos en `candidatos.json` (no va al repositorio) para poder repetir la selección con `--reusar`.
+
+Ahora hay **92 tableros, hasta el 31 de diciembre de 2026**. Los días 41 a 92 se añadieron el 22 de octubre con `--ampliar 0 52 --max-central 7 --max-jaccard 0.5 --min-palabras 12` (con 15 la búsqueda se atascaba). Se ordenaron a mano: del 10 de noviembre al 5 de diciembre, los de 15 palabras o más; del 6 al 31 de diciembre, los más cortos (12–14 palabras), que son provisionales y se pueden cambiar por otros mejores antes de que lleguen esas fechas. En los dos tramos, una central no se repite a menos de 3 días.
 
 **Después de regenerar**, sube `VERSION` en `sw.js` (por ejemplo, `silabocho-v2`) para que los móviles que ya tienen la app instalada reciban los tableros nuevos.
 
